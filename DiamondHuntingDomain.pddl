@@ -1,14 +1,16 @@
 (define (domain DiamondHunting)
 
-    (:requirements :strips )
-    
-    
-    (:predicates          
-                 
+    (:requirements :strips :typing)
+    (:types
+        location avatar door key diamond -object
     )
 
-    (:action 
+    (:predicates
 
     )
-    
+
+    (:action
+
+    )
+
 )
