@@ -21,20 +21,29 @@
 
     (:action moveright
         :parameters (?x1 ?x2 ?y1 - location)
-        :precondition (and (not(blocked ?x2 ?y1)) (forward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (not(blocked ?x2 ?y1)) (forward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (backward_pos ?x2 ?x1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x2 ?y1))
     )
 
     (:action moveup
         :parameters (?x1 ?y1 ?y2 - location)
-        :precondition (and (not(blocked ?x1 ?y2)) (backward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (not(blocked ?x1 ?y2)) (backward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (forward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
     )
 
     (:action movedown
         :parameters (?x1 ?y1 ?y2 - location)
-        :precondition (and (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (backward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
+    )
+
+    (:action key_collect
+        :parameters (?x1 -location ?y1 -location ?k -key)
+        :precondition (and (avatar_at_position ?x1 ?y1)(key_at ?k ?x1 ?y1))
+        :effect (and (not (key_at ?k ?x1 ?y1))(key_taken ?k))
     )
 
 )
