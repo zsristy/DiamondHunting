@@ -53,4 +53,11 @@
         :effect (and (not(door_lock ?x1 ?y1))(door_opened ?d))
     )
 
+    (:action diamond_collect
+        :parameters (?x1 ?y1 -location ?d -diamond)
+        :precondition  (and (avatar_at_position ?x1 ?y1)(diamond_at ?x1 ?y1))
+        :effect (and (diamond_taken ?d)
+            (not (diamond_at ?x1 ?y1)) )
+    )
+
 )
