@@ -78,7 +78,10 @@
         (blocked x7 y3)
     )
 
-    (:goal
+    (:goal(and 
+            (avatar_at_position x4 y9)
+            (diamond_taken diamond1)
+            )
 
     )
 )
