@@ -25,6 +25,10 @@
         :effect (and (backward_pos ?x2 ?x1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x2 ?y1))
     )
 
-    
+    (:action moveup
+        :parameters (?x1 ?y1 ?y2 - location)
+        :precondition (and (not(blocked ?x1 ?y2)) (backward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :effect (and (forward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
+    )
 
 )
