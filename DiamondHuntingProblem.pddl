@@ -3,10 +3,12 @@
     (:domain DiamondHunting)
 
     (:objects
-        x1 x2 x3 x4 x5 x6 x7 y1 y2 y3 y4 y5 y6 y7 y8 y9 - location
-        key1 key2 key3 - key
-        door1 door2 door3 - door
-        diamond1 -diamond
+       x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 - location 
+       y1 y2 y3 y4 y5 y6 y7 y8 y9 y10 - location
+    
+    key1  key2 key3 key4 key5 - key
+    door1  door2  door3 door4 door5 - door
+    diamond1 diamond2 - diamond
     )
 
     (:INIT
