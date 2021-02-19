@@ -71,7 +71,7 @@
 
     (:action diamond_collect
         :parameters (?x1 ?y1 -location ?d -diamond)
-        :precondition (and (avatar_at_position ?x1 ?y1)(diamond_at ?d ?x1 ?y1))
+        :precondition (and (avatar_at_position ?x1 ?y1)(diamond_at ?d ?x1 ?y1) (>= (avater_energy) (diamond_hunt ?d)))
         :effect (and (diamond_taken ?d)
             (not (diamond_at ?d ?x1 ?y1)))
     )
