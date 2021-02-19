@@ -66,7 +66,7 @@
         :parameters (?k - key ?d - door ?x1 -location ?y1 -location)
         :precondition (and (door_at ?d ?x1 ?y1) (door_lock ?x1 ?y1)
             (not(door_opened ?d)) (avatar_at_position ?x1 ?y1) (lock_key_pair ?d ?k) (key_taken ?k))
-        :effect (and (not(door_lock ?x1 ?y1))(door_opened ?d))
+        :effect (and (increase (avater_energy) (opening_prize ?d)) (not(door_lock ?x1 ?y1))(door_opened ?d))
     )
 
     (:action diamond_collect
