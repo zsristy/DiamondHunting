@@ -49,10 +49,10 @@
 
     (:action movedown
         :parameters (?x1 ?y1 ?y2 - location)
-        :precondition (and (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)
-            (not(door_lock ?x1 ?y1)))
+        :precondition (and (> (avater_energy) 0)  (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
         :effect (and (backward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
     )
+
     (:action key_collect
         :parameters (?x1 -location ?y1 -location ?k -key)
         :precondition (and (avatar_at_position ?x1 ?y1) (>= (avater_energy) (buying_key ?k)) (key_at ?k ?x1 ?y1))
