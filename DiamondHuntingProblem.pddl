@@ -20,8 +20,12 @@
            (lock_key_pair door5 key5)
 
         (=(avater_energy) 30)
-
         
+        (=(buying_key key1) 3)
+        (=(buying_key key2) 5)
+        (=(buying_key key3) 7)
+        (=(buying_key key4) 10)
+        (=(buying_key key5) 15)
 
         (forward_pos x1 x2)
             (forward_pos x2 x3)
