@@ -1,8 +1,13 @@
 (define (domain DiamondHunting)
 
-    (:requirements :strips :typing :negative-preconditions)
-    
-    (:types
+    :requirements
+    :strips
+    :typing
+    :negative-preconditions
+    :fluents
+)
+
+(:types
         location avatar door key diamond -object
     )
     
@@ -19,6 +24,13 @@
                 (lock_key_pair ?d ?k)
                 (diamond_taken ?d)         
                  
+    )
+
+    (:functions
+        (avater_energy) -number
+        (buying_key ?k -key) -number
+        (opening_prize ?d -door) -number
+        (diamond_hunt ?d -diamond) -number
     )
 
     (:action moveleft
