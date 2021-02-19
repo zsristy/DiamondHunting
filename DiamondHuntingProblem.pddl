@@ -19,7 +19,7 @@
            (lock_key_pair door4 key4)
            (lock_key_pair door5 key5)
 
-        (=(avater_energy) 30)
+        (=(avatar_energy) 30)
 
         (=(buying_key key1) 3)
         (=(buying_key key2) 5)
@@ -156,4 +156,6 @@
             (diamond_taken diamond2)
             )
         )
+
+    (:metric maximize (avatar_energy))
 )
