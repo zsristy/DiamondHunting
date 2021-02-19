@@ -156,4 +156,6 @@
             (diamond_taken diamond2)
             )
         )
+
+    (:metric maximize (avater_energy))
 )
