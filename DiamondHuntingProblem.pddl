@@ -150,6 +150,7 @@
             (diamond_at diamond2 x10 y2)
             (blocked x10 y3)
             )
+    (home_at x10 y10)
 
     (:goal(and 
             (diamond_taken diamond1)
