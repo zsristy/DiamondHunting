@@ -33,6 +33,9 @@
         (=(opening_prize door4) 30)
         (=(opening_prize door5) 45)
 
+        (= (diamond_hunt diamond1) 50)
+        (= (diamond_hunt diamond2) 100)
+
         (forward_pos x1 x2)
             (forward_pos x2 x3)
             (forward_pos x3 x4)
