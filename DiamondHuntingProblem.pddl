@@ -18,8 +18,12 @@
            (lock_key_pair door3 key3)
            (lock_key_pair door4 key4)
            (lock_key_pair door5 key5)
-      
-            (forward_pos x1 x2)
+
+        (=(avater_energy) 30)
+
+        
+
+        (forward_pos x1 x2)
             (forward_pos x2 x3)
             (forward_pos x3 x4)
             (forward_pos x4 x5)
