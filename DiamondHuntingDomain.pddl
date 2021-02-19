@@ -19,6 +19,8 @@
         (door_opened ?d)
         (lock_key_pair ?d ?k)
         (diamond_taken ?d)
+        (home_at ?x ?y)
+        (finished)
 
     )
 
