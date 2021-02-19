@@ -149,13 +149,13 @@
 (door_lock x10 y1)
             (diamond_at diamond2 x10 y2)
             (blocked x10 y3)
+            (home_at x10 y10)
+            
             )
-    (home_at x10 y10)
+    
 
-    (:goal(and 
-            (diamond_taken diamond1)
-            (diamond_taken diamond2)
-            )
+    (:goal(finished)
+
         )
 
     (:metric maximize (avatar_energy))
