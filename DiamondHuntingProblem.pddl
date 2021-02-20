@@ -7,7 +7,8 @@
         y1 y2 y3 y4 y5 y6 y7 y8 y9 y10 - location
 
         key1 key2 key3 key4 key5 - key
-        door1 door2 door3 door4 door5 - door
+        door1 door5 - blocking_door
+        door2 door3 door4 - welcoming_door
         diamond1 diamond2 - diamond
     )
 
