@@ -1,6 +1,6 @@
 (define (domain DiamondHunting)
 
-    (:requirements :strips :typing :negative-preconditions :fluents)
+    (:requirements :strips :typing :negative-preconditions :fluents :universal-preconditions)
 
     (:types
         location avatar door key diamond -object
@@ -80,7 +80,11 @@
         :parameters (?k - key ?d - door ?x1 -location ?y1 -location)
         :precondition (and (door_at ?d ?x1 ?y1) (door_lock ?x1 ?y1)
             (not(door_opened ?d)) (avatar_at_position ?x1 ?y1) (lock_key_pair ?d ?k) (key_taken ?k))
-        :effect (and (increase (avatar_energy) (opening_prize ?d)) (not(door_lock ?x1 ?y1))(door_opened ?d))
+        :effect (and (not(door_lock ?x1 ?y1))(door_opened ?d) (forall
+                (?d -welcoming_door)
+                (increase (avater_energy) (opening_prize ?d))) (forall
+                (?d -blocking_door)
+                (decrease (avater_energy) (opening_prize ?d))))
     )
 
     ;if the avatar reach at the position where the a diamond is kept and avatar has the pre-required energy to take the specific diamond
@@ -97,7 +101,9 @@
 
     (:action complete_maze
         :parameters (?x1 ?y1 -location)
-        :precondition (and (diamond_taken diamond1) (diamond_taken diamond2) (avatar_at_position ?x1 ?y1) (home_at ?x1 ?y1))
+        :precondition (and (forall
+                (?d -diamond)
+                (and (diamond_taken ?d))) (avatar_at_position ?x1 ?y1) (home_at ?x1 ?y1))
         :effect (finished)
     )
 
