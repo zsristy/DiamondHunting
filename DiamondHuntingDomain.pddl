@@ -4,57 +4,62 @@
 
     (:types
         location avatar door key diamond -object
+        blocking_door welcoming_door -door
     )
 
     (:predicates
-        (avatar_at_position ?x ?y)       ; avatar's current position
-        (forward_pos ?x ?y)        ;from left to right and from up to down         
-        (backward_pos ?x ?y)        ;from right to left and from down to up 
-        (blocked ?x ?y)         ;avatar can't step in here
-        (door_lock ?x ?y)     ;the door isn't opened yet so the avatar can't step in here
-        (key_at ?k ?x ?y)       ;where the specific key is kept
-        (door_at ?d ?x ?y)          ;where the specific door is located 
-        (diamond_at ?d ?x ?y)       ;where the specific diamond is kept
-        (key_taken ?k)          ;whether the specific key is taken by the avatar or not
-        (door_opened ?d)      ;whether the specific door is opened by the avatar or not
-        (lock_key_pair ?d ?k)       ;which key is for which door
-        (diamond_taken ?d)      ;whether the specific diamond is taken by the avatar or not
-        (home_at ?x ?y)        ;home position is at x10,y10
-        (finished)          ;whether the the avater get out from the maze acomplishing the task
+        (avatar_at_position ?x ?y) ; avatar's current position
+        (forward_pos ?x ?y) ;from left to right and from up to down         
+        (backward_pos ?x ?y) ;from right to left and from down to up 
+        (blocked ?x ?y) ;avatar can't step in here
+        (door_lock ?x ?y) ;the door isn't opened yet so the avatar can't step in here
+        (key_at ?k ?x ?y) ;where the specific key is kept
+        (door_at ?d ?x ?y) ;where the specific door is located 
+        (diamond_at ?d ?x ?y) ;where the specific diamond is kept
+        (key_taken ?k) ;whether the specific key is taken by the avatar or not
+        (door_opened ?d) ;whether the specific door is opened by the avatar or not
+        (lock_key_pair ?d ?k) ;which key is for which door
+        (diamond_taken ?d) ;whether the specific diamond is taken by the avatar or not
+        (home_at ?x ?y) ;home position is at x10,y10
+        (finished) ;whether the the avater get out from the maze acomplishing the task
 
     )
 
     (:functions
-        (avatar_energy) -number         ;initially avatar has an energy which will increase or decrease with completion of task
-        (buying_key ?k -key) -number         ;to take a specific key avater need a pre-required energy
-        (opening_prize ?d -door) -number        ;when avater opens a specific door he will get its associated energy
-        (diamond_hunt ?d -diamond) -number          ;to take a specific diamond avater need a pre-required energy
+        (avatar_energy) -number ;initially avatar has an energy which will increase or decrease with completion of task
+        (buying_key ?k -key) -number ;to take a specific key avater need a pre-required energy
+        (opening_prize ?d -door) -number ;when avater opens a specific door he will get its associated energy
+        (diamond_hunt ?d -diamond) -number ;to take a specific diamond avater need a pre-required energy
     )
 
     ;an avatar can move to any side when her energy is greater than 0, the path is not blocked, and there is no locked door. 
     ;And as the effect of move, the avatar will go to forward or backward, and his current position will be changed accordingly.
 
-    (:action moveleft           
+    (:action moveleft
         :parameters (?x1 ?x2 ?y1 - location)
-        :precondition (and (> (avatar_energy) 0) (not(blocked ?x2 ?y1))  (backward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)))
+        :precondition (and (> (avatar_energy) 0) (not(blocked ?x2 ?y1)) (backward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (forward_pos ?x2 ?x1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x2 ?y1))
     )
 
     (:action moveright
         :parameters (?x1 ?x2 ?y1 - location)
-        :precondition (and (> (avatar_energy) 0)  (not(blocked ?x2 ?y1)) (forward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (> (avatar_energy) 0) (not(blocked ?x2 ?y1)) (forward_pos ?x1 ?x2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (backward_pos ?x2 ?x1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x2 ?y1))
     )
 
     (:action moveup
         :parameters (?x1 ?y1 ?y2 - location)
-        :precondition (and (> (avatar_energy) 0)  (not(blocked ?x1 ?y2)) (backward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (> (avatar_energy) 0) (not(blocked ?x1 ?y2)) (backward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (forward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
     )
 
     (:action movedown
         :parameters (?x1 ?y1 ?y2 - location)
-        :precondition (and (> (avatar_energy) 0)  (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)(not(door_lock ?x1 ?y1)) )
+        :precondition (and (> (avatar_energy) 0) (not(blocked ?x1 ?y2)) (forward_pos ?y1 ?y2) (avatar_at_position ?x1 ?y1)
+            (not(door_lock ?x1 ?y1)))
         :effect (and (backward_pos ?y2 ?y1) (not(avatar_at_position ?x1 ?y1)) (avatar_at_position ?x1 ?y2))
     )
 
