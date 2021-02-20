@@ -192,12 +192,12 @@
             )
     
 
-    (:goal(finished)
+    (:goal(finished))
 
-        )
-    )
-
+    
     (:metric maximize
         (avatar_energy)
     )
+
+    
 )
