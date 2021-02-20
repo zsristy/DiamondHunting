@@ -74,7 +74,7 @@
     )
 
     ;if the avatar reach at the position where the a door exists, the specific door is locked, and the avatar has collected it's paired key
-    ;then the avater will unlock the door and she will gain specific energy and the door lock will be neither at the position 
+    ;then the avater will unlock the door and she will check if the specific door is blocking door to decrease specific energy from total avatar energy and if it was a welcoming door, specific energy will be increased a amount. For both case the decreasing and increasing amount would be opening prize amount for that door. and the door lock will be neither at the position.
 
     (:action unlock_door
         :parameters (?k - key ?d - door ?x1 -location ?y1 -location)
@@ -97,7 +97,7 @@
             (not (diamond_at ?d ?x1 ?y1)))
     )
 
-    ;the maze will be completed only after the avatar reaching the home position with two diamonds. and it will true the finished status
+    ;the maze will be completed only after the avatar reaching the home position with every diamonds in the maze. and it will true the finished status
 
     (:action complete_maze
         :parameters (?x1 ?y1 -location)
