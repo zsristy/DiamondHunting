@@ -73,7 +73,7 @@
         :effect (and (not (key_at ?k ?x1 ?y1)) (decrease (avatar_energy) (buying_key ?k)) (key_taken ?k))
     )
 
-    ;if the avatar reach at the position where the a door exists, the specific door is locked, and the avatar has collected it's paired key
+    ;if the avatar reach at the position where the a door exists, the specific door is locked, and the avatar has collected it's paired key and for blocking door, the avatar energy have to be greater than the opening prize that could be decreased.
     ;then the avater will unlock the door and she will check if the specific door is blocking door to decrease specific energy from total avatar energy and if it was a welcoming door, specific energy will be increased a amount. For both case the decreasing and increasing amount would be opening prize amount for that door. and the door lock will be neither at the position.
 
     (:action unlock_door
