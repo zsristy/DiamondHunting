@@ -33,7 +33,7 @@
     ;K1,K2,K3,K4,K5 - key
     ;H - Home (finishing position)
 
-    ; starting the game with avatar energy 30
+    ; starting the game with avatar energy 50
 
     ; K1 buying energy 3
     ; K2 buying energy 5
@@ -58,7 +58,7 @@
         (lock_key_pair door4 key4)
         (lock_key_pair door5 key5)
 
-        (=(avatar_energy) 30)
+        (=(avatar_energy) 50)
 
         (=(buying_key key1) 3)
         (=(buying_key key2) 5)
@@ -72,8 +72,8 @@
         (=(opening_prize door4) 30)
         (=(opening_prize door5) 45)
 
-        (= (diamond_hunt diamond1) 20)
-        (= (diamond_hunt diamond2) 50)
+        (= (diamond_hunt diamond1) 60)
+        (= (diamond_hunt diamond2) 70)
 
         (forward_pos x1 x2)
         (forward_pos x2 x3)
