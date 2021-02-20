@@ -82,9 +82,9 @@
             (not(door_opened ?d)) (avatar_at_position ?x1 ?y1) (lock_key_pair ?d ?k) (key_taken ?k))
         :effect (and (not(door_lock ?x1 ?y1))(door_opened ?d) (forall
                 (?d -welcoming_door)
-                (increase (avater_energy) (opening_prize ?d))) (forall
+                (increase (avatar_energy) (opening_prize ?d))) (forall
                 (?d -blocking_door)
-                (decrease (avater_energy) (opening_prize ?d))))
+                (decrease (avatar_energy) (opening_prize ?d))))
     )
 
     ;if the avatar reach at the position where the a diamond is kept and avatar has the pre-required energy to take the specific diamond
